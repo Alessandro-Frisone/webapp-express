@@ -6,9 +6,9 @@ const movieControllers = require ("../controller/movieController")
 router.get("/", movieControllers.index)
 
 //-----SHOW-----//
-router.get("/", movieControllers.show)
+router.get("/:id", movieControllers.show)
 
 //-----DESTROY-----//
-router.delete("/", movieControllers.destroy)
+router.delete("/:id", movieControllers.destroy)
 
 module.exports = router;
