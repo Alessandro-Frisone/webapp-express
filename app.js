@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { PORT, FE_URL } = process.env;
+const movieRouter = require ("./routers/movieRouters")
 const errorsHandler = require("./middleware/errorsHandler");
 const notFound = require ("./middleware/notFound")
+const { PORT, FE_URL } = process.env;
 
 // middleware per i file statici
 app.use(express.static("public"));
@@ -17,6 +18,9 @@ app.use(
     origin: FE_URL,
   })
 );
+
+// Routes (le rotte della mia applicazione)
+app.use("/movie", movieRouter)
 
 // Middlewares - Per la gestione degli errori (404, 500)
 app.use(errorsHandler);
