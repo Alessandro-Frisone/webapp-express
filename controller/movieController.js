@@ -98,7 +98,7 @@ const storeReview = (req, res) => {
 
   // Preparare la query di inserimento
   const sql =
-    "INSERT INTO reviews (book_id, name, text, vote) VALUES (?, ?, ?, ?)";
+    "INSERT INTO reviews (movie_id, name, text, vote) VALUES (?, ?, ?, ?)";
   // Eseguire la query
   connection.execute(sql, [id, name, text, vote], (err, results) => {
     if (err) {
@@ -122,7 +122,7 @@ const store = (req, res) => {
 
   // Preparare la query di inserimento
   const sql =
-    "INSERT INTO books (title, author, abstract, image) VALUES (?, ?, ?, ?)";
+    "INSERT INTO movies (title, author, abstract, image) VALUES (?, ?, ?, ?)";
   // Eseguire la query
   connection.execute(sql, [title, author, abstract, image], (err, results) => {
     if (err) {
